@@ -8,7 +8,10 @@ import greetings from './cli.js';
 export default (game) => {
   const userName = greetings();
   console.log(game.instructions);
-  for (const [question, answer] of game.questions_and_answers) {
+  for (let i = 0; i < game.questions_and_answers.length; i += 1) {
+    const pair = game.questions_and_answers[i];
+    const question = pair[0];
+    const answer = pair[1];
     console.log(`Question: ${question}`);
     const userAsnswer = rs.question('Your answer: ');
     if (answer !== userAsnswer) {
@@ -16,7 +19,6 @@ export default (game) => {
       console.log(`Let's try again, ${userName}!`);
       return;
     }
-
     console.log('Correct!');
   }
   console.log(`Congratulations, ${userName}!`);
