@@ -6,13 +6,19 @@ export default () => {
   const MAX_VALUE = 100;
 
   const gameLogic = {};
-  gameLogic.instructions = 'Answer "yes" if the number is even, otherwise answer "no".';
+  gameLogic.instructions = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const qAndA = [];
   for (let i = 0; i < NUMBER_OF_QUESTIONS; i += 1) {
     const num = Math.floor(Math.random() * MAX_VALUE);
+    const isPrime = (num1) => {
+      for (let i1 = 2, s = Math.sqrt(num1); i1 <= s; i1 += 1) {
+        if (num1 % i1 === 0) return false;
+      }
+      return num1 > 1;
+    };
     const question = `${num}`;
     let answer = '';
-    if (num % 2 === 0) {
+    if (isPrime(num)) {
       answer = 'yes';
     } else {
       answer = 'no';
