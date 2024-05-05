@@ -2,7 +2,7 @@
 // input 1 - the initial explanation of game to the user
 // input 2 - a list of tuples (each tuple is a question and an answer, both text)
 // inputs are packed into dictionary
-import greetings from '../src/cli.js';
+import greetings from './cli.js';
 import * as rs from 'readline-sync';
 
 export default (game) => {
